@@ -4,6 +4,8 @@
 <div align="center">
 
 <img src="https://github.com/user-attachments/assets/026accb6-232b-40d7-b458-f8c55e7adf3c" width="600" alt="Echo API Boilerplate">
+![logo_go](https://github.com/user-attachments/assets/254ffdcc-aa19-4fb4-bf83-a02533c1484c)
+
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
