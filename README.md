@@ -3,8 +3,7 @@
 
 <div align="center">
 
-<img src="https://github.com/user-attachments/assets/254ffdcc-aa19-4fb4-bf83-a02533c1484c" width="400" alt="Go Logo">
-
+![logo_go-removebg-preview](https://github.com/user-attachments/assets/0f2e5144-5ac3-46dd-882b-d1496cfc973b)
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
