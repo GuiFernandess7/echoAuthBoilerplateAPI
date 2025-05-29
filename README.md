@@ -1,4 +1,10 @@
-# Echo Auth Boilerplate
+# <div align="center">Echo Auth Boilerplate</div>
+
+<div align="center">
+
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+
+</div>
 
 A Go boilerplate using Echo Framework with authentication and feature-based organization.
 
@@ -64,18 +70,42 @@ make run
 
 ```
 .
-├── cmd/
-│   └── server.go         # Application entry point
-├── internal/
-│   ├── app/             # Application configuration
-│   ├── config/          # Configurations
-│   └── features/        # Application features
-│       ├── auth/        # Authentication feature
-│       └── health/      # Health check feature
-├── pkg/
-│   ├── database/        # Database configuration
-│   └── logger/          # Custom logger
-└── logs/                # Logs directory
+├── cmd/                    # Application entry points
+│   └── server.go          # Main server initialization and configuration - entrypoint
+│
+├── internal/              # Private application code
+│   ├── app/              # Core application setup and configuration
+│   │   └── app.go        # Application struct and initialization
+│   │
+│   ├── config/           # Configuration management
+│   │   └── config.go     # Environment and application settings
+│   │
+│   └── features/         # Business logic organized by features
+│       ├── auth/         # Authentication feature
+│       │   ├── handler.go    # HTTP request handlers
+│       │   ├── repository.go # Database operations
+│       │   ├── router.go     # Route definitions
+│       │   └── model/        # Data models
+│       │
+│       └── health/       # Health check feature
+│           └── router.go # Health check endpoints
+│
+├── pkg/                  # Public libraries that can be used by external applications
+│   ├── database/        # Database connection and configuration
+│   │   └── database.go  # Database setup and utilities
+│   │
+│   └── logger/          # Custom logging implementation
+│       └── logger.go    # Logging configuration and utilities
+│
+├── logs/                # Application logs directory
+│   └── app.log         # Main application log file
+│
+├── .env.example        # Example environment variables
+├── .gitignore         # Git ignore rules
+├── go.mod             # Go module definition
+├── go.sum             # Go module checksums
+├── Makefile          # Build automation commands
+└── README.md         # Project documentation
 ```
 
 ## 🔍 Endpoints
