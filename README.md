@@ -9,19 +9,19 @@
 
 A Go boilerplate using Echo Framework with authentication and feature-based organization.
 
-## 🚀 Features
+## 1. Features
 
-- Echo Framework for REST API
-- Feature-based organization
-- Authentication system (login/signup)
-- Custom logging
-- Environment-based configuration
-- PostgreSQL connection
-- Health check endpoint
+- 🚀 Echo Framework for REST API
+- 📦 Feature-based organization
+- 🔐 Authentication system (login/signup)
+- 📝 Custom logging
+- ⚙️ Environment-based configuration
+- 🗄️ PostgreSQL connection
+- 🏥 Health check endpoint
 
-## 📋 Prerequisites
+## 2. Prerequisites
 
-- Go 1.22.x
+- Go 1.22.x or higher
 - PostgreSQL
 - Make (optional, for using make commands)
 
@@ -67,7 +67,7 @@ Or using make:
 make run
 ```
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 .
