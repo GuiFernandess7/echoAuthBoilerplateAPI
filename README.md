@@ -9,6 +9,14 @@
 
 </div>
 
+<div align="center">
+
+![Go](https://img.shields.io/badge/Go-1.22+-00ADD8?style=for-the-badge&logo=go&logoColor=white)
+![Echo](https://img.shields.io/badge/Echo-v4-00ADD8?style=for-the-badge&logo=go&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
+
+</div>
+
 A Go boilerplate using Echo Framework with authentication and feature-based organization.
 
 ## 1. Features
