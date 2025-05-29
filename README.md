@@ -1,4 +1,5 @@
-# <div align="center">Echo Auth Boilerplate</div>
+# <div align="center">Echo API Boilerplate</div>
+
 
 <div align="center">
 
