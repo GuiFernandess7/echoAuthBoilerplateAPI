@@ -48,7 +48,7 @@ func NewApplication(cfg *config.AppConfig) (*Application, error) {
 	if err != nil {
 		return nil, fmt.Errorf("failed to configure logger: %w", err)
 	}
-	appLogger.Info("Logger initialized successfull.")
+	appLogger.Print("Logger initialized successfull.")
 
 	db, err := database.InitDB(cfg.DB, appLogger)
 	if err != nil {

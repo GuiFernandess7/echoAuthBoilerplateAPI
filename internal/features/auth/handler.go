@@ -2,7 +2,6 @@ package auth
 
 import (
 	"database/sql"
-	"fmt"
 	"net/http"
 
 	"github.com/GuiFernandess7/echoAuthBoilerplate/pkg/logger"
@@ -11,6 +10,7 @@ import (
 
 func HandleLogin(db *sql.DB, logger *logger.Logger) echo.HandlerFunc {
 	repo := NewAuthRepository(db)
+	service := NewAuthService(repo, logger)
 
 	return func(c echo.Context) error {
 		var loginRequest LoginDTO
@@ -24,15 +24,15 @@ func HandleLogin(db *sql.DB, logger *logger.Logger) echo.HandlerFunc {
 		}
 
 		logger.Print("Login request received: Email=%s", loginRequest.Email)
-		user, err := repo.FindByEmail(loginRequest.Email)
+
+		user, err := service.Login(loginRequest)
 		if err != nil {
-			logger.Error("Error finding user: %v", err)
+			logger.Error("Login error: %v", err)
 			return c.JSON(http.StatusUnauthorized, map[string]string{
-				"message": "Invalid credentials",
+				"message": "Login failed",
+				"error":   err.Error(),
 			})
 		}
-
-		// TODO: verify password
 
 		logger.Printf("Login successful for user: %s", user.Email)
 		return c.JSON(http.StatusOK, map[string]interface{}{
@@ -48,6 +48,7 @@ func HandleLogin(db *sql.DB, logger *logger.Logger) echo.HandlerFunc {
 
 func HandleSignup(db *sql.DB, logger *logger.Logger) echo.HandlerFunc {
 	repo := NewAuthRepository(db)
+	service := NewAuthService(repo, logger)
 
 	return func(c echo.Context) error {
 		var signupRequest RegisterDTO
@@ -60,42 +61,13 @@ func HandleSignup(db *sql.DB, logger *logger.Logger) echo.HandlerFunc {
 			})
 		}
 
-		if err := ValidateEmail(signupRequest.Email); err != nil {
-			logger.Error("Invalid email format: %s", signupRequest.Email)
-			return c.JSON(http.StatusBadRequest, map[string]string{
-				"message": "Invalid email format",
-				"error":   fmt.Sprintf("%v", err),
-			})
-		}
-
-		if err := ValidatePassword(signupRequest.Password); err != nil {
-			logger.Error("Invalid password: %s", signupRequest.Password)
-			return c.JSON(http.StatusBadRequest, map[string]string{
-				"message": "Invalid password",
-				"error":   fmt.Sprintf("%v", err),
-			})
-		}
-
-		passwordHashed, err := hashPassword(signupRequest.Password)
-		if err != nil {
-			logger.Error("Error hashing password: %v", err)
-			return c.JSON(http.StatusInternalServerError, map[string]string{
-				"message": "Error processing password",
-				"error":   err.Error(),
-			})
-		}
-
 		logger.Print("Signup request received: Email=%s", signupRequest.Email)
-		user := &User{
-			Email:    signupRequest.Email,
-			Password: passwordHashed,
-			Name:     signupRequest.Name,
-		}
 
-		if err := repo.Create(user); err != nil {
-			logger.Error("Error creating user: %v", err)
-			return c.JSON(http.StatusInternalServerError, map[string]string{
-				"message": "Error creating user",
+		user, err := service.Signup(signupRequest)
+		if err != nil {
+			logger.Error("Signup error: %v", err)
+			return c.JSON(http.StatusBadRequest, map[string]string{
+				"message": "Signup failed",
 				"error":   err.Error(),
 			})
 		}

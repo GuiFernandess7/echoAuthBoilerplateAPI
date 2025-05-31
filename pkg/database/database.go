@@ -4,6 +4,8 @@ import (
 	"database/sql"
 	"fmt"
 
+	_ "github.com/lib/pq"
+
 	log "github.com/GuiFernandess7/echoAuthBoilerplate/pkg/logger"
 )
 
@@ -28,15 +30,15 @@ func InitDB(config DBConfig, logger *log.Logger) (*sql.DB, error) {
 
 	db, err := sql.Open("postgres", connStr)
 	if err != nil {
-		return nil, fmt.Errorf("erro ao abrir o banco de dados: %w", err)
+		return nil, fmt.Errorf("%w", err)
 	}
 
 	err = db.Ping()
 	if err != nil {
 		db.Close()
-		return nil, fmt.Errorf("erro ao conectar ao banco de dados: %w", err)
+		return nil, fmt.Errorf("%w", err)
 	}
 
-	logger.Print("Conexão com o banco de dados estabelecida com sucesso!")
+	logger.Print("Database connection established successfully!")
 	return db, nil
 }

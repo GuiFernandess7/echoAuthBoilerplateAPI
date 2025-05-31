@@ -38,13 +38,13 @@ func NewLogger(path string, level LogLevel) (*Logger, error) {
 
 func (l *Logger) Print(format string, v ...interface{}) {
 	if l.level <= INFO {
-		l.Logger.Printf(format, v...)
+		l.Logger.Printf("[INFO] "+format, v...)
 	}
 }
 
 func (l *Logger) Info(format string, v ...interface{}) {
 	if l.level <= INFO {
-		l.Logger.Printf(format, v...)
+		l.Logger.Printf("[INFO] "+format, v...)
 	}
 }
 
