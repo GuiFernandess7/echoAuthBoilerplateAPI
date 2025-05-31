@@ -2,6 +2,7 @@ package auth
 
 import (
 	"database/sql"
+	"fmt"
 	"net/http"
 
 	"github.com/GuiFernandess7/echoAuthBoilerplate/pkg/logger"
@@ -59,10 +60,35 @@ func HandleSignup(db *sql.DB, logger *logger.Logger) echo.HandlerFunc {
 			})
 		}
 
+		if err := ValidateEmail(signupRequest.Email); err != nil {
+			logger.Error("Invalid email format: %s", signupRequest.Email)
+			return c.JSON(http.StatusBadRequest, map[string]string{
+				"message": "Invalid email format",
+				"error":   fmt.Sprintf("%v", err),
+			})
+		}
+
+		if err := ValidatePassword(signupRequest.Password); err != nil {
+			logger.Error("Invalid password: %s", signupRequest.Password)
+			return c.JSON(http.StatusBadRequest, map[string]string{
+				"message": "Invalid password",
+				"error":   fmt.Sprintf("%v", err),
+			})
+		}
+
+		passwordHashed, err := hashPassword(signupRequest.Password)
+		if err != nil {
+			logger.Error("Error hashing password: %v", err)
+			return c.JSON(http.StatusInternalServerError, map[string]string{
+				"message": "Error processing password",
+				"error":   err.Error(),
+			})
+		}
+
 		logger.Print("Signup request received: Email=%s", signupRequest.Email)
 		user := &User{
 			Email:    signupRequest.Email,
-			Password: signupRequest.Password, // TODO: hash password
+			Password: passwordHashed,
 			Name:     signupRequest.Name,
 		}
 
