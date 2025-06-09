@@ -34,14 +34,19 @@ func HandleLogin(db *sql.DB, logger *logger.Logger) echo.HandlerFunc {
 			})
 		}
 
+		token, err := generateToken(&loginRequest, user.Email)
+		if err != nil {
+			logger.Error("Error generating token: %v", err)
+			return c.JSON(http.StatusInternalServerError, map[string]string{
+				"message": "Failed to generate token",
+			})
+		}
+
 		logger.Printf("Login successful for user: %s", user.Email)
-		return c.JSON(http.StatusOK, map[string]interface{}{
-			"message": "Login successful!",
-			"user": map[string]interface{}{
-				"id":    user.ID,
-				"email": user.Email,
-				"name":  user.Name,
-			},
+		return c.JSON(http.StatusOK, echo.Map{
+			"access_token": token,
+			"token_type":   "Bearer",
+			"expires_in":   3600,
 		})
 	}
 }

@@ -8,6 +8,10 @@ import (
 	"github.com/joho/godotenv"
 )
 
+type JWTConfig struct {
+	Secret string
+}
+
 type AppConfig struct {
 	ServerPort string
 	LogLevel   string

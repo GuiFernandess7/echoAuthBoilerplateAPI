@@ -44,3 +44,43 @@
 2025/05/31 20:15:19 Signup successful for user: guilhermessp.199@gmail.com
 2025/05/31 20:15:58 [INFO] Login request received: Email=guilhermessp.199@gmail.com
 2025/05/31 20:15:58 Login successful for user: guilhermessp.199@gmail.com
+2025/06/09 17:34:58 [INFO] Logger initialized successfull.
+2025/06/09 17:34:58 [FATAL] Failed to initialized database: dial tcp [::1]:5432: connectex: No connection could be made because the target machine actively refused it.
+2025/06/09 17:35:50 [INFO] Logger initialized successfull.
+2025/06/09 17:35:50 [FATAL] Failed to initialized database: dial tcp [::1]:5432: connectex: No connection could be made because the target machine actively refused it.
+2025/06/09 17:35:51 [INFO] Logger initialized successfull.
+2025/06/09 17:35:51 [FATAL] Failed to initialized database: dial tcp [::1]:5432: connectex: No connection could be made because the target machine actively refused it.
+2025/06/09 17:36:05 [INFO] Logger initialized successfull.
+2025/06/09 17:36:05 [FATAL] Failed to initialized database: dial tcp [::1]:5432: connectex: No connection could be made because the target machine actively refused it.
+2025/06/09 17:37:54 [INFO] Logger initialized successfull.
+2025/06/09 17:37:54 [INFO] Database connection established successfully!
+2025/06/09 17:37:54 [INFO] Database initialized successfully.
+2025/06/09 17:37:54 [INFO] Echo server initializing in port :50446
+2025/06/09 17:38:13 [INFO] Login request received: Email=guilhermessp.199@gmail.com
+2025/06/09 17:38:14 Login successful for user: guilhermessp.199@gmail.com
+2025/06/09 17:42:30 [ERROR] Error binding login request: code=400, message=Syntax error: offset=45, error=invalid character '"' after object key:value pair, internal=invalid character '"' after object key:value pair
+2025/06/09 17:42:39 [ERROR] Error binding login request: code=400, message=Syntax error: offset=106, error=invalid character '}' looking for beginning of object key string, internal=invalid character '}' looking for beginning of object key string
+2025/06/09 17:42:58 [ERROR] Error binding login request: code=400, message=Syntax error: offset=5, error=invalid character '\'' looking for beginning of object key string, internal=invalid character '\'' looking for beginning of object key string
+2025/06/09 17:43:43 [ERROR] Error binding login request: code=400, message=Syntax error: offset=5, error=invalid character '\'' looking for beginning of object key string, internal=invalid character '\'' looking for beginning of object key string
+2025/06/09 17:44:38 [INFO] Login request received: Email=guilhermessp.200@gmail.com
+2025/06/09 17:44:38 [ERROR] Login error: invalid credentials
+2025/06/09 17:44:50 [INFO] Signup request received: Email=guilhermessp.200@gmail.com
+2025/06/09 17:44:50 [ERROR] Signup error: password must contain at least one uppercase letter, one lowercase letter, one number, and one special character
+2025/06/09 17:44:57 [INFO] Signup request received: Email=guilhermessp.200@gmail.com
+2025/06/09 17:44:57 Signup successful for user: guilhermessp.200@gmail.com
+2025/06/09 18:00:20 [INFO] Logger initialized successfull.
+2025/06/09 18:00:20 [INFO] Database connection established successfully!
+2025/06/09 18:00:20 [INFO] Database initialized successfully.
+2025/06/09 18:00:20 [INFO] Echo server initializing in port :50446
+2025/06/09 18:12:20 [INFO] Logger initialized successfull.
+2025/06/09 18:12:21 [INFO] Database connection established successfully!
+2025/06/09 18:12:21 [INFO] Database initialized successfully.
+2025/06/09 18:12:21 [INFO] Echo server initializing in port :50446
+2025/06/09 18:30:48 [INFO] Logger initialized successfull.
+2025/06/09 18:30:48 [INFO] Database connection established successfully!
+2025/06/09 18:30:48 [INFO] Database initialized successfully.
+2025/06/09 18:30:48 [INFO] Echo server initializing in port :50446
+2025/06/09 18:30:54 [INFO] Signup request received: Email=guilhermessp.199@gmail.com
+2025/06/09 18:30:54 [ERROR] Signup error: email already registered
+2025/06/09 18:31:08 [INFO] Login request received: Email=guilhermessp.199@gmail.com
+2025/06/09 18:31:09 Login successful for user: guilhermessp.199@gmail.com

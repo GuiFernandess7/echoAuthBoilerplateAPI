@@ -8,7 +8,7 @@ import (
 )
 
 func RegisterRoutes(e *echo.Echo, db *sql.DB, logger *logger.Logger) {
-	auth := e.Group("/auth")
+	auth := e.Group("/api/auth")
 	{
 		auth.POST("/login", HandleLogin(db, logger))
 		auth.POST("/signup", HandleSignup(db, logger))

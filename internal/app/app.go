@@ -65,7 +65,6 @@ func NewApplication(cfg *config.AppConfig) (*Application, error) {
 		DB:     db,
 		Echo:   e,
 	}
-
 	app.setupRoutes()
 
 	return app, nil
